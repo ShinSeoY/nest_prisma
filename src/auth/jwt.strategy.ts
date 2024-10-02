@@ -2,6 +2,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { AuthService } from './auth.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { User } from '@prisma/client';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -13,7 +14,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  public async validate(payload: JwtPayload): Promise<any> {
+  public async validate(payload: JwtPayload): Promise<User> {
     const user = await this.authService.validateUser(payload);
     if (!user) {
       throw new UnauthorizedException('Invalid token');
