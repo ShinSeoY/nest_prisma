@@ -1,4 +1,4 @@
-import { User } from '@prisma/client';
+import { $Enums, User } from '@prisma/client';
 import { UserDto } from '../dto';
 
 export class UserEntity implements User {
@@ -9,6 +9,7 @@ export class UserEntity implements User {
   public email: string;
   public password: string;
   public name: string | null;
+  public role: $Enums.Role;
   //   public role: number;
 
   constructor(partial: Partial<User>) {

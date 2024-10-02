@@ -1,5 +1,5 @@
-import { Bookmark, User } from '@prisma/client';
-import { BookmarkDto, UserDto } from '../dto';
+import { Bookmark } from '@prisma/client';
+import { BookmarkDto } from '../dto';
 
 export class BookmarkEntity implements Bookmark {
   public id: number;
@@ -9,6 +9,7 @@ export class BookmarkEntity implements Bookmark {
   public title: string;
   public link: string;
   public description: string | null;
+  public userId: number | null;
   //   public role: number;
 
   constructor(partial: Partial<Bookmark>) {
