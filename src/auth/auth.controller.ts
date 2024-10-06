@@ -6,7 +6,7 @@ import { PrismaClientExceptionFilter } from 'src/prisma-client-exception.filter'
 @Controller('auth')
 @UseFilters(PrismaClientExceptionFilter)
 export class AuthController {
-  private readonly logger = new Logger(AuthService.name);
+  private readonly logger = new Logger(AuthController.name);
 
   constructor(private readonly authService: AuthService) {}
 

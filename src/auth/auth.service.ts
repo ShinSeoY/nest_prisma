@@ -4,7 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './jwt.strategy';
 import { UserService } from '../user/user.service';
 import { CreateUserDto, LoginUserDto, UserDto } from '../user/dto';
-import { toUserDto } from '../user/entity/user.entity';
+import { toUserDto, UserEntity } from '../user/entity/user.entity';
 import { User } from '@prisma/client';
 
 // import { PrismaService } from '../prisma/prisma.service';
@@ -62,7 +62,7 @@ export class AuthService {
     };
   }
 
-  public async validateUser(payload: JwtPayload): Promise<any> {
+  public async validateUser(payload: JwtPayload): Promise<UserEntity> {
     return await this.usersService.findByPayload(payload);
   }
 }

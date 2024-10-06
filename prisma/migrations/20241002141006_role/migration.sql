@@ -1,8 +1,0 @@
--- AlterTable
-ALTER TABLE `Bookmark` ADD COLUMN `userId` INTEGER NULL;
-
--- AlterTable
-ALTER TABLE `User` ADD COLUMN `role` ENUM('USER', 'ADMIN', 'SUPER_ADMIN') NOT NULL DEFAULT 'USER';
-
--- AddForeignKey
-ALTER TABLE `Bookmark` ADD CONSTRAINT `Bookmark_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

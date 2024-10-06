@@ -3,7 +3,6 @@ import { IsBoolean, IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, MaxLength,
 export class CreateBookmarkDto {
   @IsString()
   @IsNotEmpty()
-  @IsEmail()
   title: string;
 
   @IsString()
@@ -13,4 +12,8 @@ export class CreateBookmarkDto {
   @IsString()
   @IsOptional()
   description: string;
+
+  @IsInt()
+  @IsOptional()
+  userId: number;
 }

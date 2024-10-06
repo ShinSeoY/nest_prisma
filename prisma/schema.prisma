@@ -30,6 +30,6 @@ model Bookmark {
   title       String
   description String?
   link        String
-  userId      Int?
-  user        User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade )
 }
