@@ -29,7 +29,7 @@ export class BookmarkController {
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Post('')
-  @Roles(Role.USER)
+  @Roles(Role.USER, Role.ADMIN)
   public async createBookmark(@Request() req, @Body() createBookmarkDto: CreateBookmarkDto) {
     console.log('req.user: ', req.user);
     createBookmarkDto.userId = req.user.id;
@@ -38,7 +38,7 @@ export class BookmarkController {
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Get('')
-  @Roles(Role.USER)
+  @Roles(Role.USER, Role.ADMIN)
   public async finAllbookmarks(@Request() req) {
     console.log('req.user: ', req.user);
     const bookmarks = await this.bookmakrService.findAll();
@@ -47,7 +47,7 @@ export class BookmarkController {
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Get('/my')
-  @Roles(Role.USER)
+  @Roles(Role.USER, Role.ADMIN)
   public async finMybookmarks(@Request() req) {
     console.log('req.user: ', req.user);
     const bookmarks = await this.bookmakrService.findMyBookmarks(req.user);

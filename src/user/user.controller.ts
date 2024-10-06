@@ -24,16 +24,9 @@ import { Role } from '../roles/enums/role.enum';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  //   @UseGuards(JwtAuthGuard)
-  // @UseInterceptors(ClassSerializerInterceptor)
-  // @Post('')
-  // public async create(@Body() dto: CreateUserDto) {
-  //   return toUserDto(await this.userService.create(dto));
-  // }
-
   @UseInterceptors(ClassSerializerInterceptor)
   @Get('me')
-  @Roles(Role.USER)
+  @Roles(Role.USER, Role.ADMIN)
   public async me(@Request() req) {
     console.log('req.user: ', req.user);
     return toUserDto(await this.userService.findByPayload(req.user));
