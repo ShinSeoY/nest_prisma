@@ -15,7 +15,7 @@ import { BookmarkService } from './bookmark.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RolesGuard } from '../roles/roles.guard';
 import { Roles } from '../roles/roles.decorator';
-import { Role } from 'src/roles/enums/role.enum';
+import { Role } from '../roles/enums/role.enum';
 import { toBookmarkDto } from './entity/bookmark.entity';
 import { CreateBookmarkDto } from './dto';
 

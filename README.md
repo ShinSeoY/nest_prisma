@@ -42,9 +42,7 @@ $ npm run start
 ## Task 5: Test
 
 ```bash
-# unit tests
-$ npm run test
 
 # e2e tests
-$ npm run test:e2e
+$ npm run test:e2e -- bookmark.service.e2e-spec.ts
 ```

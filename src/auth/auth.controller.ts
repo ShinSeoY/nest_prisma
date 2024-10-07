@@ -1,7 +1,7 @@
 import { Body, Controller, Post, UseFilters, BadRequestException, Logger } from '@nestjs/common';
 import { AuthService, RegistrationStatus } from './auth.service';
 import { CreateUserDto, LoginUserDto } from '../user/dto';
-import { PrismaClientExceptionFilter } from 'src/prisma-client-exception.filter';
+import { PrismaClientExceptionFilter } from '../prisma-client-exception.filter';
 
 @Controller('auth')
 @UseFilters(PrismaClientExceptionFilter)
